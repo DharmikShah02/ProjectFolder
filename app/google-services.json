@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "12078876403",
+    "firebase_url": "https://society-pay.firebaseio.com",
+    "project_id": "society-pay",
+    "storage_bucket": "society-pay.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12078876403:android:73b513486351045ad79986",
+        "android_client_info": {
+          "package_name": "com.societypay"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12078876403-jviv5ivbihm2j2vtsvbh8pdhai7vpdgf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.societypay",
+            "certificate_hash": "b4909e9d43b9295c7db2a64689729dc75a7dccd7"
+          }
+        },
+        {
+          "client_id": "12078876403-ep73bb90c5lfppi3efbiqfq6nkhu60sb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWSs4R7jAbABfOU_ZjIdfWEbP83sm7QAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12078876403-ep73bb90c5lfppi3efbiqfq6nkhu60sb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
