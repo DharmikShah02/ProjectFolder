@@ -1,6 +1,7 @@
 package com.societypay;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,9 @@ public class Dashboard extends AppCompatActivity {
         final TextView txttransaction=(TextView) findViewById(R.id.textView3);
         final ImageView imgreciept=(ImageView) findViewById(R.id.Reciept);
         final TextView Textrciept=(TextView) findViewById(R.id.RecieptA);
-        imgtransaction.setOnClickListener(new View.OnClickListener() {
+        final CardView CI1=(CardView) findViewById(R.id.cl1);
+        final CardView CI2=(CardView) findViewById(R.id.cl2);
+        CI1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent int1;
@@ -29,7 +32,7 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        txttransaction.setOnClickListener(new View.OnClickListener() {
+        /*txttransaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent int2;
@@ -38,20 +41,21 @@ public class Dashboard extends AppCompatActivity {
                 finish();
 
             }
-        });
-        imgreciept.setOnClickListener(new View.OnClickListener() {
+        });*/
+        CI2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent int3=new Intent(Dashboard.this,Reciept.class);
                 startActivity(int3);
             }
         });
+        /*
         Textrciept.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent int4=new Intent(Dashboard.this,Reciept.class);
                 startActivity(int4);
             }
-        });
+        });*/
     }
 }

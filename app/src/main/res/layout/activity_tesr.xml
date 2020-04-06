@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".TesrActivity"
+    android:background="#fff">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="311dp"
+        android:layout_height="134dp"
+        app:cardBackgroundColor="#66BAEE"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="20dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="129dp"
+        android:layout_marginEnd="55dp"
+        android:layout_marginBottom="468dp"
+        />
+</RelativeLayout>

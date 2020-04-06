@@ -7,7 +7,6 @@
     tools:context=".Transaction"
     android:background="#E6E5E5">
 
-
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
@@ -60,7 +59,8 @@
             android:background="@drawable/edittextbackground"
             android:gravity="center"
             android:inputType="text"
-            android:text="Enter Name"
+            android:hint="Enter Name"
+            android:textColorHint="#090808"
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toTopOf="@+id/Pay"
             app:layout_constraintEnd_toEndOf="parent"
@@ -75,7 +75,8 @@
             android:background="@drawable/edittextbackground"
             android:gravity="center"
             android:inputType="number"
-            android:text="Enter Amount"
+            android:hint="Enter Amount"
+            android:textColorHint="#090808"
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toTopOf="@+id/Pay"
             app:layout_constraintEnd_toEndOf="parent"
@@ -89,7 +90,8 @@
             android:background="@drawable/edittextbackground"
             android:gravity="center"
             android:inputType="text"
-            android:text="Enter FlatNo"
+            android:hint="Enter FlatNo"
+            android:textColorHint="#090808"
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toTopOf="@+id/Pay"
             app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +105,8 @@
             android:background="@drawable/edittextbackground"
             android:gravity="center"
             android:inputType="number"
-            android:text="Enter ContactNo"
+            android:hint="Enter ContactNo"
+            android:textColorHint="#090808"
             android:layout_marginTop="20dp"
             app:layout_constraintBottom_toTopOf="@+id/Pay"
             app:layout_constraintEnd_toEndOf="parent"
@@ -192,4 +195,18 @@
         android:text="Submit" />!-->
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btndashboard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#E06407"
+        android:text="BACK"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/LayoutInput"
+        app:layout_constraintVertical_bias="0.539" />
 </androidx.constraintlayout.widget.ConstraintLayout>
