@@ -78,6 +78,7 @@ public class VerifyPhone extends AppCompatActivity {
 
                             startActivity(intent);
 
+
                         } else {
                             Toast.makeText(VerifyPhone.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }

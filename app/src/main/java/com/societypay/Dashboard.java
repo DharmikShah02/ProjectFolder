@@ -21,6 +21,12 @@ public class Dashboard extends AppCompatActivity {
         final TextView Textrciept=(TextView) findViewById(R.id.RecieptA);
         final CardView CI1=(CardView) findViewById(R.id.cl1);
         final CardView CI2=(CardView) findViewById(R.id.cl2);
+        final CardView CI3=(CardView) findViewById(R.id.cl3);
+
+        userinfo userinfo1=new userinfo(Dashboard.this);
+        userinfo1.setMobNo(true);
+
+
         CI1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +51,7 @@ public class Dashboard extends AppCompatActivity {
         CI2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent int3=new Intent(Dashboard.this,Reciept.class);
+                Intent int3=new Intent(Dashboard.this,RecieptFP.class);
                 startActivity(int3);
             }
         });
@@ -57,5 +63,20 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(int4);
             }
         });*/
+        /*CI3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent int4=new Intent(Dashboard.this,ServicesUser.class);
+                startActivity(int4);
+            }
+        });*/
+
+    }
+    public void LogOut(View view)
+    {
+        new userinfo(Dashboard.this).removeUser();
+        Intent i1=new Intent(Dashboard.this,MainActivity.class);
+        startActivity(i1);
+        finish();
     }
 }

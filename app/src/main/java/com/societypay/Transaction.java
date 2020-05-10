@@ -33,6 +33,7 @@ public class Transaction extends AppCompatActivity implements PaymentResultListe
     EditText Name,Contact,Amount,Flatno;
     String TextName,TextContact,TextAmount,TextFlatNo;
     Button Back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,15 +77,17 @@ public class Transaction extends AppCompatActivity implements PaymentResultListe
             //all name and value ,description,currency declared here in try catch block through json object
             object.put("name","Society Pay");
             object.put("description","Maintainence Payment");
-            object.put("image",""+R.drawable.applogo);
             object.put("currency","INR");
-            object.put("amount","80000");//this value will be myltiplied by 100."500" = INR 5.00
+            String paymentAmount=Amount.getText().toString().trim();
+            double totalPayment=Double.parseDouble(paymentAmount);
+            totalPayment = totalPayment* 100;
+            object.put("amount",totalPayment);//this value will be multiplied by 100."500" = INR 5.00
 
             //prefill iteams .the iteams will be prefilled by default this value will be in box
-            JSONObject prefill=new JSONObject();
-            prefill.put("email","dharmikshah090@gmail.com");
-            prefill.put("contact","9428504246");
-            object.put("prefill",prefill);
+            //JSONObject prefill=new JSONObject();
+            //prefill.put("email","dharmikshah090@gmail.com");
+            //prefill.put("contact","9428504246");
+            //object.put("prefill",prefill);
 
             checkout.open(activity,object);
         } catch (JSONException e) {
@@ -115,6 +118,7 @@ public class Transaction extends AppCompatActivity implements PaymentResultListe
         userdata.put("Flat_no", Flatno.getText().toString().trim());
         userdata.put("MobileNo",Contact.getText().toString().trim());
         userdata.put("Amount",Amount.getText().toString().trim());
+        userdata.put("razorPayId",s);
 
         db.collection("UserDataR")
                 .add(userdata)

@@ -7,12 +7,16 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="SOCIETYPAY"
+        android:icon="@mipmap/societypayapplogo2_round"
+        android:label="Society PaY"
         android:roundIcon="@drawable/ic_applogo1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TesrActivity"></activity>
+        <activity android:name=".RecieptFP"></activity>
+        <activity
+            android:name=".ui.login.ServiceUser"
+            android:label="@string/title_activity_service_user" />
+        <activity android:name=".TesrActivity" />
         <activity android:name=".Reciept" />
         <activity android:name=".Transaction" />
         <activity
@@ -34,6 +38,9 @@
         <meta-data
             android:name="com.razorpay.ApiKey"
             android:value="rzp_test_H2D6bIecZNR90b" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
 
 </manifest>
