@@ -63,13 +63,13 @@ public class Dashboard extends AppCompatActivity {
                 startActivity(int4);
             }
         });*/
-        /*CI3.setOnClickListener(new View.OnClickListener() {
+        CI3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent int4=new Intent(Dashboard.this,ServicesUser.class);
+                Intent int4=new Intent(Dashboard.this,Servicesu.class);
                 startActivity(int4);
             }
-        });*/
+        });
 
     }
     public void LogOut(View view)

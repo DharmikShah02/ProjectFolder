@@ -30,8 +30,8 @@ import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class Transaction extends AppCompatActivity implements PaymentResultListener {
     private static final String TAG = MainActivity.class.getSimpleName();
-    EditText Name,Contact,Amount,Flatno;
-    String TextName,TextContact,TextAmount,TextFlatNo;
+    EditText Name, Contact, Amount, Flatno;
+    String TextName, TextContact, TextAmount, TextFlatNo;
     Button Back;
 
     @Override
@@ -46,42 +46,42 @@ public class Transaction extends AppCompatActivity implements PaymentResultListe
         Contact = findViewById(R.id.PayerContactNo);
         Amount = findViewById(R.id.PayerAmount);
         Flatno = findViewById(R.id.PayerFlatNo);
-        Back=findViewById(R.id.btndashboard);
+        Back = findViewById(R.id.btndashboard);
         Button btnpay = (Button) findViewById(R.id.Pay);
         btnpay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 verify();
                 //gettext from edittext
-                 TextName=Name.getText().toString().trim();
-                 TextContact=Contact.getText().toString().trim();
-                 TextAmount=Amount.getText().toString().trim();
-                 TextFlatNo=Flatno.getText().toString().trim();
+                TextName = Name.getText().toString().trim();
+                TextContact = Contact.getText().toString().trim();
+                TextAmount = Amount.getText().toString().trim();
+                TextFlatNo = Flatno.getText().toString().trim();
             }
         });
         Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(Transaction.this,Dashboard.class);
+                Intent intent = new Intent(Transaction.this, Dashboard.class);
                 startActivity(intent);
             }
         });
     }
 
     public void startPayment() {
-        final Activity activity=this;
-        final Checkout checkout=new Checkout();
+        final Activity activity = this;
+        final Checkout checkout = new Checkout();
 
-        JSONObject object=new JSONObject();
+        JSONObject object = new JSONObject();
         try {
             //all name and value ,description,currency declared here in try catch block through json object
-            object.put("name","Society Pay");
-            object.put("description","Maintainence Payment");
-            object.put("currency","INR");
-            String paymentAmount=Amount.getText().toString().trim();
-            double totalPayment=Double.parseDouble(paymentAmount);
-            totalPayment = totalPayment* 100;
-            object.put("amount",totalPayment);//this value will be multiplied by 100."500" = INR 5.00
+            object.put("name", "Society Pay");
+            object.put("description", "Maintainence Payment");
+            object.put("currency", "INR");
+            String paymentAmount = Amount.getText().toString().trim();
+            double totalPayment = Double.parseDouble(paymentAmount);
+            totalPayment = totalPayment * 100;
+            object.put("amount", totalPayment);//this value will be multiplied by 100."500" = INR 5.00
 
             //prefill iteams .the iteams will be prefilled by default this value will be in box
             //JSONObject prefill=new JSONObject();
@@ -89,9 +89,9 @@ public class Transaction extends AppCompatActivity implements PaymentResultListe
             //prefill.put("contact","9428504246");
             //object.put("prefill",prefill);
 
-            checkout.open(activity,object);
+            checkout.open(activity, object);
         } catch (JSONException e) {
-            Toast.makeText(this, "Exception:"+e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Exception:" + e.getMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
@@ -116,23 +116,23 @@ public class Transaction extends AppCompatActivity implements PaymentResultListe
         Map<String, Object> userdata = new HashMap<>();
         userdata.put("Name", Name.getText().toString().trim());
         userdata.put("Flat_no", Flatno.getText().toString().trim());
-        userdata.put("MobileNo",Contact.getText().toString().trim());
-        userdata.put("Amount",Amount.getText().toString().trim());
-        userdata.put("razorPayId",s);
+        userdata.put("MobileNo", Contact.getText().toString().trim());
+        userdata.put("Amount", Amount.getText().toString().trim());
+        userdata.put("razorPayId", s);
 
         db.collection("UserDataR")
                 .add(userdata)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
-                        Toast.makeText(getApplicationContext(),"Data Successfully Entered",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Data Successfully Entered", Toast.LENGTH_SHORT).show();
                         Log.d(TAG, "DocumentSnapshot added with ID: " + documentReference.getId());
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getApplicationContext(),"Not Registered",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Not Registered", Toast.LENGTH_SHORT).show();
                         Log.w(TAG, "Error adding document", e);
                     }
                 });
@@ -143,25 +143,22 @@ public class Transaction extends AppCompatActivity implements PaymentResultListe
     public void onPaymentError(int i, String s) {
         Toast.makeText(this, "PAYMENT UNSUCESSFUL", Toast.LENGTH_SHORT).show();
     }
-    public void verify()
-    {
-        if(!validateName()){
+
+    public void verify() {
+        if (!validateName()) {
             Name.setError("At Least 3 Character");
-        }
-        else if (!validateamount()){
+        } else if (!validateamount()) {
             Amount.setError("Please Enter Amount");
-        }
-        else if(!validateflatno()){
+        } else if (!validateflatno()) {
             Flatno.setError("Enter Flat No");
-        }
-        else if(!validatecontact()){
+        } else if (!validatecontact()) {
             Contact.setError("Enter Mobile Number");
-        }
-        else{
+        } else {
             startPayment();
         }
     }
-    private boolean validateName(){
+
+    private boolean validateName() {
         boolean valid = true;
         String userInput = Name.getText().toString().trim();
 
@@ -174,9 +171,10 @@ public class Transaction extends AppCompatActivity implements PaymentResultListe
         }
         return valid;
     }
-    private boolean validateamount(){
-        boolean valid=true;
-        String userAmount=Amount.getText().toString().trim();
+
+    private boolean validateamount() {
+        boolean valid = true;
+        String userAmount = Amount.getText().toString().trim();
         if (userAmount.isEmpty()) {
             Amount.setError("Amount Will Not Be Empty");
             valid = false;
@@ -186,24 +184,25 @@ public class Transaction extends AppCompatActivity implements PaymentResultListe
         }
         return valid;
     }
-    private boolean validateflatno(){
-        boolean check=true;
 
-        String flatNo=Flatno.getText().toString().trim();
-        if (flatNo.isEmpty()){
+    private boolean validateflatno() {
+        boolean check = true;
+
+        String flatNo = Flatno.getText().toString().trim();
+        if (flatNo.isEmpty()) {
             Flatno.setError("Enter FlatNo");
-            check=false;
-        }
-        else {
+            check = false;
+        } else {
             Flatno.setError(null);
         }
         return check;
     }
-    private boolean validatecontact(){
-        boolean valid =true;
+
+    private boolean validatecontact() {
+        boolean valid = true;
 
         String mobileInput = Contact.getText().toString().trim();
-        if (mobileInput.isEmpty() || mobileInput.length()!=10) {
+        if (mobileInput.isEmpty() || mobileInput.length() != 10) {
             Contact.setError("Enter Valid Mobile Number");
             valid = false;
         } else {

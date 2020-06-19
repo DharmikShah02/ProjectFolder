@@ -12,7 +12,9 @@
         android:roundIcon="@drawable/ic_applogo1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RecieptFP"></activity>
+        <activity android:name=".DetailsServicesu"></activity>
+        <activity android:name=".Servicesu" />
+        <activity android:name=".RecieptFP" />
         <activity
             android:name=".ui.login.ServiceUser"
             android:label="@string/title_activity_service_user" />

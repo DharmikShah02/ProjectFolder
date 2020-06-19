@@ -7,6 +7,6 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Dashboard1"
     tools:showIn="@layout/app_bar_dashboard1"
-    android:background="@drawable/blackwhite">
+    >
 
 </androidx.constraintlayout.widget.ConstraintLayout>
